@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres
+
+    restart: always
+
+    ports:
+      - 5432:5432
+
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=value
+      - POSTGRES_DB=value
+
+  app:
+    container_name: valaue
+
+    build: .
+
+    links:
+      - service-name
+
+    restart: always
+
+    ports:
+      - 3333:3333
+
+    volumes:
+      - .valaue
+
+    depends_on:
+      - service-name
