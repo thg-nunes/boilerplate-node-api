@@ -9,26 +9,32 @@ services:
     ports:
       - 5432:5432
 
+    networks:
+      - app
+
+    volumes:
+      - .:/usr/app
+
     environment:
-      - POSTGRES_USER=root
+      - POSTGRES_USER=value
       - POSTGRES_PASSWORD=value
       - POSTGRES_DB=value
 
   app:
-    container_name: valaue
+    container_name: value
 
     build: .
 
-    links:
-      - service-name
+    networks:
+      - app
 
     restart: always
 
     ports:
       - 3333:3333
 
-    volumes:
-      - .valaue
-
     depends_on:
-      - service-name
+      - db
+
+networks:
+  app:
