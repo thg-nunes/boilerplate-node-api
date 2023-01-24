@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "CommonJS",
+    "resolveJsonModule": true,
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@middlewares/*": ["./src/shared/middlewares/*"],
+      "@routes/*": ["./src/shared/infra/http/routes*"],
+      "@prisma/*": ["./src/shared/infra/prisma/*"],
+      "@errors/*": ["./src/shared/errors/*"],
+      "@modules/*": ["./src/modules/*"],
+    }
+  },
+  "exclude": ["./node_modules", "./coverage"],
+  "include": [
+    "./src"
+  ]
+}
